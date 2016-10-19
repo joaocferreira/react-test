@@ -1,0 +1,8 @@
+[
+	{
+		"en": {
+	    "id": "header",
+	    "message": "Hello {name}"
+	  }
+  }  
+]
