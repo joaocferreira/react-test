@@ -1,7 +1,8 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
+import Relay from 'relay';
 
-const List = (props) => {
+let List = (props) => {
 	
 	let list = props.list;
 	
@@ -20,6 +21,20 @@ const List = (props) => {
 	);
 	
 };
+
+List = Relay.createContainer(List, {
+	fragments: {
+		list: () => Relay.QL`
+			fragment on Query {
+				pokemonAll {
+					id,
+					name,
+					type
+				}
+			}
+		`,
+	},
+});
 
 const ListItem = (props) => {
 	

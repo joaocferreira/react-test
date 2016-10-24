@@ -19,7 +19,8 @@ var config = {
       }, {
         test: /\.jsx$/,
         loader : 'babel',
-        exclude: /node_modules/
+        exclude: /node_modules/,
+				query: {stage: 0, plugins: ['./babelRelayPlugin']}
       }
     ]
   },
