@@ -25,7 +25,7 @@ var config = {
   },
   plugins: [
     new BrowserSyncPlugin({
-      proxy: 'localhost:8080'
+      proxy: 'localhost:3000'
     }, { reload: true } )
   ]
 };

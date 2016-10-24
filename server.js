@@ -24,7 +24,7 @@ app.use(function(err, req, res, next) {
   res.sendStatus(err.status || 500);
 });
 
-var port = 8080;
+var port = 3000;
 app.listen(port);
 
 console.log('Server started at: ' + port);

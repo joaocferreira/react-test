@@ -1,6 +1,8 @@
 import React from 'react';
-import { IntlProvider, FormattedMessage } from 'react-intl';
-
+import { IntlProvider } from 'react-intl';
+import List from '../list/list.jsx';
+import listPokemon from '../../data'
+	
 const Layout = (props) => {
 
 	const Locale = props.locale || 'en';
@@ -8,11 +10,7 @@ const Layout = (props) => {
 	
 	return (
 		<IntlProvider locale={Locale} messages={localeData}>
-			<FormattedMessage
-				id={ 'header' }
-				defaultMessage={ 'Merhaba {name}!' }
-				values={{name: 'Joao'}}
-			/>
+			<List list={ listPokemon } />
 		</IntlProvider>	
 	);
 	
