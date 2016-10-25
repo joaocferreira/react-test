@@ -1,11 +1,12 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import Relay from 'relay';
+import Relay from 'react-relay';
 
-class List extends React.Component {
+let List = React.createClass({
+
 	render() {
-		let list = props.list;
-	
+		let list = this.props.pokemonAll;
+
 		return (
 			<div>
 				<FormattedMessage
@@ -15,31 +16,32 @@ class List extends React.Component {
 				/>
 				<h1>List</h1>
 				<ul>
-					{ list.map((item) => <ListItem item={item} />) }
+					{// list && list.map((item) => <ListItem item={item} />)
+					}
+						<li>{list.name}</li>
+						<li>{list.type}</li>
 				</ul>
-			</div>	
+			</div>
 		);
 	}
-}
+});
 
 List = Relay.createContainer(List, {
 	fragments: {
-		list: () => Relay.QL`
-			fragment on Query {
-				pokemonAll {
+		pokemonAll: () => Relay.QL`
+			fragment on Pokemon {
 					id,
 					name,
 					type
-				}
 			}
 		`,
 	},
 });
 
 const ListItem = (props) => {
-	
+
 	let item = props.item;
-	
+
 	return (
 		<li key={ item.id }>
 			<p> name: { item.name } </p>

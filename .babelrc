@@ -1,8 +1,13 @@
 {
-  "presets": ["es2015", "react"],
-  "plugins": [
-    ["react-intl", {
-        "messagesDir": "./public"
-    }]
-  ]
+	"passPerPreset": true,
+	"presets": [{
+		"plugins": [
+			"./babelRelayPlugin"
+		]
+	}, "react", "es2015", "stage-0"],
+	"plugins": [
+		["react-intl", {
+			"messagesDir": "./public"
+		}]
+	]
 }

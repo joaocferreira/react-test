@@ -13,13 +13,13 @@ const Languages = ['en', 'pt', 'es'];
 // result is a collection of namespaced collections of `id: message` pairs for
 // the app's default locale, "en-US".
 let namespacedMessages = globSync(MESSAGES_PATTERN)
-    .map((filename) => fs.readFileSync(filename, 'utf8'))
-    .map((file) => JSON.parse(file))
+		.map((filename) => fs.readFileSync(filename, 'utf8'))
+		.map((file) => JSON.parse(file))
 
 Object.keys(namespacedMessages).forEach((namespace) => {
-    let collection = namespacedMessages[namespace];
-    let filename   = p.join(LANG_DIR, namespace, `${lang}.json`);
+		let collection = namespacedMessages[namespace];
+		let filename   = p.join(LANG_DIR, namespace, `${lang}.json`);
 
-    mkdirpSync(p.dirname(filename));
-    fs.writeFileSync(filename, JSON.stringify(collection, null, 2));
+		mkdirpSync(p.dirname(filename));
+		fs.writeFileSync(filename, JSON.stringify(collection, null, 2));
 });
