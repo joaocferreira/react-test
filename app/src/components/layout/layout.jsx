@@ -4,16 +4,14 @@ import List from '../list/list.jsx';
 import listPokemon from '../../data'
 import Relay from 'relay';
 
-class ListRoute extends Relay.Route{
-	static routeName = 'List';
-  static queries = {
-    list: (Component) => Relay.QL`
-        list {
-          ${Component.getFragment('list')},
-        }
+var ListRoute = {
+  queries: {
+    list: () => Relay.QL`
+      query { pokemonAll }
     `,
-  };
-}
+  },
+  name: 'List',
+};
 
 Relay.injectNetworkLayer(
   new Relay.DefaultNetworkLayer('http://localhost:8080')
