@@ -29,7 +29,7 @@ let List = React.createClass({
 List = Relay.createContainer(List, {
 	fragments: {
 		pokemonAll: () => Relay.QL`
-			fragment on Pokemon {
+    	fragment on Pokemon @relay(plural: true) {
 					id,
 					name,
 					type
